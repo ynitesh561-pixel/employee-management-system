@@ -6,21 +6,21 @@ function ManageEmployees({ employees, setEmployees }) {
   const [editEmployee, setEditEmployee] = useState(null);
   const [message, setMessage] = useState("");
 
-  // DELETE
+  
   const handleDelete = (id) => {
     const updated = employees.filter((emp) => emp.id !== id);
     setEmployees(updated);
 
-    setMessage("Employee Deleted Successfully ✅");
+    setMessage("Employee Deleted Successfully ");
     setTimeout(() => setMessage(""), 2000);
   };
 
-  // OPEN EDIT
+  
   const handleEdit = (emp) => {
     setEditEmployee({ ...emp });
   };
 
-  // UPDATE
+  
   const handleUpdate = () => {
     const updatedList = employees.map((emp) =>
       emp.id === editEmployee.id ? editEmployee : emp
@@ -29,11 +29,11 @@ function ManageEmployees({ employees, setEmployees }) {
     setEmployees(updatedList);
     setEditEmployee(null);
 
-    setMessage("Employee Updated Successfully ✏️");
+    setMessage("Employee Updated Successfully ");
     setTimeout(() => setMessage(""), 2000);
   };
 
-  // SEARCH
+ 
   const filteredEmployees = employees.filter((emp) =>
     `${emp.firstName || ""} ${emp.lastName || ""}`
       .toLowerCase()
@@ -44,14 +44,14 @@ function ManageEmployees({ employees, setEmployees }) {
     <div>
       <h2>Manage Employees</h2>
 
-      {/* MESSAGE */}
+      
       {message && (
         <div className="success-toast">
           {message}
         </div>
       )}
 
-      {/* SEARCH */}
+     
       <input
         type="text"
         placeholder="Search Employee..."
@@ -104,7 +104,7 @@ function ManageEmployees({ employees, setEmployees }) {
         </tbody>
       </table>
 
-      {/* MODAL EDIT FORM */}
+   
       {editEmployee && (
         <div className="modal-overlay">
           <div className="modal-box">
@@ -142,7 +142,7 @@ function ManageEmployees({ employees, setEmployees }) {
               }
             />
 
-            {/* ✅ DEPARTMENT ADDED */}
+          
             <input
               type="text"
               placeholder="Department"
